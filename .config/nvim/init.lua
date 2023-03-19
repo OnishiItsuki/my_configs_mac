@@ -1,6 +1,13 @@
-require("packer")
+-- packer settings
+require "plugins"
 
-local fn = vim.fn
-local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
-print(install_path)
+-- auto execution of packer compiling
+vim.api.nvim_create_autocmd("BufWritePost", {
+  pattern = { "plugins.lua" },
+  command = "PackerCompile",
+})
+
+-- import configuer
+require "_telescope"
+require "common"
 
