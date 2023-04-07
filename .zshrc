@@ -58,8 +58,15 @@ alias cdk-dest-prod="cdk destroy --profile bridge"
 
 
 # -- others -- 
+# -- shortcats -- 
 alias v="nvim"
 alias f="fvm flutter"
 alias flutter="fvm flutter"
+alias diff="colordiff"
 
+# -- utils --
+alias n2c="pbpaste | tr '\n' ',' | sed 's/,$//' | pbcopy"
+alias n2cc="pbpaste | tr '\n' ',' | sed 's/,$//' | pbcopy"
+alias h="TMPHISTCMD=\$(history 1 | fzf --reverse --tac | sed 's/^ *[0-9]* *//' | tail -n 1); print -z \$TMPHISTCMD"
+alias hex="history 1 | fzf --reverse --tac | sed 's/^ *[0-9]* *//' | xargs -I {} zsh -c \"{}\""
 
