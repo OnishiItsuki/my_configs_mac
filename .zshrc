@@ -31,18 +31,18 @@ alias ssh-ac-infra-stg="ssh -i ~/.ssh/id_rsa ec2-user@172.31.5.196"
 
 # -- git -- 
 alias gc="git checkout"
-alias agc="git checkout feature/AIRCLOSET-"
 alias gb="git branch"
 alias gs="git stash"
 alias gm="git merge --ff"
 alias gcm="git commit -m"
+
 alias gsm="git submodule"
 alias gsmu="git submodule update"
 
-alias gpush="git push origin"
-alias agpush="git push origin feature/AIRCLOSET-"
-alias gpull="git pull origin"
-alias agpull="git pull origin feature/AIRCLOSET-"
+alias gpusho="git push origin"
+alias gpullo="git pull origin"
+alias gpush"TMPBRANCH=\$(git branch --show-current); git push origin \$TMPBRANCH"
+alias gpull="TMPBRANCH=\$(git branch --show-current); git pull origin \$TMPBRANCH"
 
 # -- AWS -- 
 alias ap="ansible-playbook"
@@ -65,8 +65,17 @@ alias flutter="fvm flutter"
 alias diff="colordiff"
 
 # -- utils --
+# コピーしたもののフォーマットを変える
 alias n2c="pbpaste | tr '\n' ',' | sed 's/,$//' | pbcopy"
 alias n2cc="pbpaste | tr '\n' ',' | sed 's/,$//' | pbcopy"
+
+# ヒストリー検索
 alias h="TMPHISTCMD=\$(history 1 | fzf --reverse --tac | sed 's/^ *[0-9]* *//' | tail -n 1); print -z \$TMPHISTCMD"
-alias hex="history 1 | fzf --reverse --tac | sed 's/^ *[0-9]* *//' | xargs -I {} zsh -c \"{}\""
+alias hex="TMPHISTCMD=\$(history 1 | fzf --reverse --tac | sed 's/^ *[0-9]* *//' | tail -n 1); \$TMPHISTCMD"
+# alias hex="history 1 | fzf --reverse --tac | sed 's/^ *[0-9]* *//' | xargs -I {} zsh -c \"{}\""
+
+# Git便利コマンド
+alias ggc="git branch --format=\"%(refname:short)\" | fzf | xargs git checkout"
+alias ggpush="TMPBRANCH=\$(git branch --format=\"%(refname:short)\" | fzf); git push origin \$TMPBRANCH"
+alias ggpull="TMPBRANCH=\$(git branch --format=\"%(refname:short)\" | fzf); git pull origin \$TMPBRANCH"
 
