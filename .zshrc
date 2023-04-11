@@ -76,6 +76,7 @@ alias hex="TMPHISTCMD=\$(history 1 | fzf --reverse --tac | sed 's/^ *[0-9]* *//'
 
 # Git便利コマンド
 alias ggc="git branch --format=\"%(refname:short)\" | fzf | xargs git checkout"
+alias ggbd="git branch --format=\"%(refname:short)\" | fzf | xargs git branch -d"
 alias ggpush="TMPBRANCH=\$(git branch --format=\"%(refname:short)\" | fzf); git push origin \$TMPBRANCH"
 alias ggpull="TMPBRANCH=\$(git branch --format=\"%(refname:short)\" | fzf); git pull origin \$TMPBRANCH"
 
