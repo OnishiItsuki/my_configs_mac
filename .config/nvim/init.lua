@@ -9,5 +9,7 @@ vim.api.nvim_create_autocmd("BufWritePost", {
 
 -- import configuer
 require "_telescope"
+require "_cmp"
+require "_nightfox"
 require "common"
 

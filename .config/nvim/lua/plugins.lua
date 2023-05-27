@@ -41,18 +41,12 @@ packer.init({
 
 -- Install your plugins here
 return packer.startup(function(use)
-	-- My plugins here
-
 	use({ "wbthomason/packer.nvim" })
-	-- use({ "nvim-lua/plenary.nvim" }) -- Common utilities
+	use({ "nvim-lua/plenary.nvim" }) -- Common utilities
 
-	-- Colorschemes
-	use({ "EdenEast/nightfox.nvim" }) -- Color scheme
-
-	-- use({ "nvim-lualine/lualine.nvim" }) -- Statusline
-	-- use({ "windwp/nvim-autopairs" }) -- Autopairs, integrates with both cmp and treesitter
-	-- use({ "kyazdani42/nvim-web-devicons" }) -- File icons
-	-- use({ "akinsho/bufferline.nvim" })
+	use({ "nvim-lualine/lualine.nvim" }) -- Statusline
+	use({ "kyazdani42/nvim-web-devicons" }) -- File icons
+	use({ "akinsho/bufferline.nvim" })
 
 	-- cmp plugins
 	use({ "hrsh7th/nvim-cmp" }) -- The completion plugin
@@ -60,41 +54,40 @@ return packer.startup(function(use)
 	use({ "hrsh7th/cmp-path" }) -- path completions
 	use({ "hrsh7th/cmp-cmdline" }) -- cmdline completions
 	use({ "saadparwaiz1/cmp_luasnip" }) -- snippet completions
-	-- use({ "hrsh7th/cmp-nvim-lsp" })
-	-- use({ "hrsh7th/cmp-nvim-lua" })
-	-- use({ "onsails/lspkind-nvim" })
+	use({ "hrsh7th/cmp-nvim-lsp" })
+	use({ "hrsh7th/cmp-nvim-lua" })
+	use({ "onsails/lspkind-nvim" })
 
 	-- snippets
 	use({ "L3MON4D3/LuaSnip" }) --snippet engine
 
 	-- LSP
-	-- use({ "neovim/nvim-lspconfig" }) -- enable LSP
-	-- use({ "williamboman/nvim-lsp-installer" }) -- simple to use language server installer
-	-- use({ "jose-elias-alvarez/null-ls.nvim" }) -- for formatters and linters
-	-- use({ "glepnir/lspsaga.nvim" }) -- LSP UIs
+	use({ "neovim/nvim-lspconfig" }) -- enable LSP
+	use({ "williamboman/nvim-lsp-installer" }) -- simple to use language server installer
+	use({ "jose-elias-alvarez/null-ls.nvim" }) -- for formatters and linters
+	use({ "glepnir/lspsaga.nvim" }) -- LSP UIs
+
+	use({ "williamboman/mason.nvim" })
+	use({ "williamboman/mason-lspconfig.nvim"})
 
 	-- Formatter
 	use({ "MunifTanjim/prettier.nvim" })
 
-	-- Telescope
-	-- use({ "nvim-telescope/telescope.nvim" })
-
-	-- Treesitter
-	use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
-	use({ "nvim-telescope/telescope-file-browser.nvim" })
-
-	-- ============ tag/bracket auto complete ============
-	use({ "windwp/nvim-ts-autotag" })
-	use { "windwp/nvim-autopairs", config = function() require("nvim-autopairs").setup {} end }
-
-	-- ============ coc ============
-	use {'neoclide/coc.nvim', branch = 'release'}
+	-- ============ Colorschemes ============
+	use({ "EdenEast/nightfox.nvim" }) -- Color scheme
 
 	-- ============ fizzy finder ============
 	use {
 		'nvim-telescope/telescope.nvim', tag = '0.1.1',
 		requires = { {'nvim-lua/plenary.nvim'} }
 	}
+
+	-- ============ Treesitter ============
+	use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
+
+	-- ============ tag/bracket auto complete ============
+	use({ "windwp/nvim-ts-autotag" })
+	use { "windwp/nvim-autopairs", config = function() require("nvim-autopairs").setup {} end }
 
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins
