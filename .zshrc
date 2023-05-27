@@ -60,14 +60,19 @@ alias cdk-dest-prod="cdk destroy --profile bridge"
 # -- others -- 
 # -- shortcats -- 
 alias v="nvim"
-alias f="fvm flutter"
+alias fu="fvm flutter"
 alias flutter="fvm flutter"
 alias diff="colordiff"
 
+# -- vim --
+alias f="nvim \$(fzf --reverse)"
+
 # -- utils --
 # コピーしたもののフォーマットを変える
+# カンマ区切り
 alias n2c="pbpaste | tr '\n' ',' | sed 's/,$//' | pbcopy"
-alias n2cc="pbpaste | tr '\n' ',' | sed 's/,$//' | pbcopy"
+# カンマ区切りにしつつダブルクウォーテーションをつける
+alias n2dc="pbpaste | tr '\n' ',' | sed 's/,$//' | pbcopy"
 
 # ヒストリー検索
 alias h="TMPHISTCMD=\$(history 1 | fzf --reverse --tac | sed 's/^ *[0-9]* *//' | tail -n 1); print -z \$TMPHISTCMD"
