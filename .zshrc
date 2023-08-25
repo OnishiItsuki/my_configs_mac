@@ -41,8 +41,8 @@ alias gsmu="git submodule update"
 
 alias gpusho="git push origin"
 alias gpullo="git pull origin"
-alias gpush="TMPBRANCH=\$(git branch --show-current); git push origin \$TMPBRANCH"
-alias gpull="TMPBRANCH=\$(git branch --show-current); git pull origin \$TMPBRANCH"
+alias gpush="CUURENT_BRANCH=\$(git branch --show-current); git push origin \$CUURENT_BRANCH"
+alias gpull="CUURENT_BRANCH=\$(git branch --show-current); git pull origin \$CUURENT_BRANCH"
 
 # -- AWS -- 
 alias ap="ansible-playbook"
