@@ -6,12 +6,15 @@ eval "$(nodenv init - --no-rehash)"
 eval "$(direnv hook zsh)"
 
 PROMPT='
-%* %F{white}%n%b%f@%F{white}%m%u%f %F{green}[%~]%f 
+%* %F{white}%n%b%f@%F{white}%m%u%f %F{green}[%~]%f
 %# '
 
 
+# ------- path settings ------- 
+export PATH="/opt/homebrew/Cellar/mongodb-community@5.0/5.0.27/bin:$PATH"
+
 # ------- python settings ------- 
-export PATH="${HOME}/.pyenv/shims:${PATH}"
+# export PATH="${HOME}/.pyenv/shims:${PATH}"
 
 # ------- alias ------- 
 # -- shell -- 
@@ -21,13 +24,14 @@ alias aaa="cd ../../.."
 alias aaaa="cd ../../../.."
 alias aaaaa="cd ../../../../.."
 
-alias sr="exec $SHELL -l"
+alias restart="exec $SHELL -l"
 alias restart-shell="exec $SHELL -l"
 
 alias ql="qlmanage -p"
 
 # -- ssh -- 
-alias ssh-ac-infra-stg="ssh -i ~/.ssh/id_rsa ec2-user@172.31.5.196"
+alias ssh-ac-infra-stg="ssh -i ~/.ssh/id_rsa ec2-user@${AC_INFRA_STG_IP}"
+alias sshre="ssh -i ~/.ssh/id_rsa dhik@${AC_RELEAS_IP}"
 
 # -- git -- 
 alias gc="git checkout"
