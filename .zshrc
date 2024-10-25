@@ -48,6 +48,12 @@ alias gpullo="git pull origin"
 alias gpush="CUURENT_BRANCH=\$(git branch --show-current); git push origin \$CUURENT_BRANCH"
 alias gpull="CUURENT_BRANCH=\$(git branch --show-current); git pull origin \$CUURENT_BRANCH"
 
+# Git便利コマンド
+alias ggc="git branch --format=\"%(refname:short)\" | fzf | xargs git checkout"
+alias ggbd="git branch --format=\"%(refname:short)\" | fzf | xargs git branch -d"
+alias ggpush="TMPBRANCH=\$(git branch --format=\"%(refname:short)\" | fzf); git push origin \$TMPBRANCH"
+alias ggpull="TMPBRANCH=\$(git branch --format=\"%(refname:short)\" | fzf); git pull origin \$TMPBRANCH"
+
 # -- AWS -- 
 alias ap="ansible-playbook"
 alias awsp="source _awsp"
@@ -73,19 +79,29 @@ alias f="nvim \$(fzf --reverse)"
 
 # -- utils --
 # コピーしたもののフォーマットを変える
-# カンマ区切り
-alias n2c="pbpaste | tr '\n' ',' | sed 's/,$//' | pbcopy"
-# カンマ区切りにしつつダブルクウォーテーションをつける
-alias n2dc="pbpaste | tr '\n' ',' | sed 's/,$//' | pbcopy"
+# 改行 <=> カンマ
+alias n2c="pbpaste | tr '\n' ',' | pbcopy"
+alias c2n="pbpaste | tr ',' '\n' | pbcopy"
+
+# 改行 <=> タブ
+alias n2t="pbpaste | tr '\n' '\t' | pbcopy"
+alias t2n="pbpaste | tr '\t' '\n' | pbcopy"
+
+# カンマ <=> タブ
+alias c2t="pbpaste | tr ',' '\t' | pbcopy"
+alias t2c="pbpaste | tr '\t' ',' | pbcopy"
+
+# ;の末尾に改行を追加する
+alias s="pbpaste | sed 's/;/;\n/g' | pbcopy"
+
+#  綺麗なdiff
+alias d='function _diffview(){ diff --side-by-side --color=always --width=$(tput cols) "$1" "$2" | colordiff | less -R }; _diffview'
+
 
 # ヒストリー検索
 alias h="TMPHISTCMD=\$(history 1 | fzf --reverse --tac | sed 's/^ *[0-9]* *//' | tail -n 1); print -z \$TMPHISTCMD"
 alias hex="TMPHISTCMD=\$(history 1 | fzf --reverse --tac | sed 's/^ *[0-9]* *//' | tail -n 1); \$TMPHISTCMD"
 # alias hex="history 1 | fzf --reverse --tac | sed 's/^ *[0-9]* *//' | xargs -I {} zsh -c \"{}\""
 
-# Git便利コマンド
-alias ggc="git branch --format=\"%(refname:short)\" | fzf | xargs git checkout"
-alias ggbd="git branch --format=\"%(refname:short)\" | fzf | xargs git branch -d"
-alias ggpush="TMPBRANCH=\$(git branch --format=\"%(refname:short)\" | fzf); git push origin \$TMPBRANCH"
-alias ggpull="TMPBRANCH=\$(git branch --format=\"%(refname:short)\" | fzf); git pull origin \$TMPBRANCH"
 
+PATH=~/.console-ninja/.bin:$PATH
