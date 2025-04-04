@@ -12,9 +12,13 @@ PROMPT='
 
 # ------- path settings ------- 
 export PATH="/opt/homebrew/Cellar/mongodb-community@5.0/5.0.27/bin:$PATH"
+export PATH="/opt/homebrew/opt/mysql@8.0/bin:$PATH"
 
 # ------- python settings ------- 
 # export PATH="${HOME}/.pyenv/shims:${PATH}"
+
+# ------- not secure enviroment variables ------- 
+export HOMEBREW_NO_AUTO_UPDATE=1
 
 # ------- alias ------- 
 # -- shell -- 
@@ -73,6 +77,7 @@ alias v="nvim"
 alias fu="fvm flutter"
 alias flutter="fvm flutter"
 alias diff="colordiff"
+alias c="cursor"
 
 # -- vim --
 alias f="nvim \$(fzf --reverse)"
