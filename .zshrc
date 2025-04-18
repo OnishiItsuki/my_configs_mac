@@ -13,6 +13,7 @@ PROMPT='
 # ------- path settings ------- 
 export PATH="/opt/homebrew/Cellar/mongodb-community@5.0/5.0.27/bin:$PATH"
 export PATH="/opt/homebrew/opt/mysql@8.0/bin:$PATH"
+export PATH="~/.console-ninja/.bin":$PATH
 
 # ------- python settings ------- 
 # export PATH="${HOME}/.pyenv/shims:${PATH}"
@@ -109,4 +110,3 @@ alias hex="TMPHISTCMD=\$(history 1 | fzf --reverse --tac | sed 's/^ *[0-9]* *//'
 # alias hex="history 1 | fzf --reverse --tac | sed 's/^ *[0-9]* *//' | xargs -I {} zsh -c \"{}\""
 
 
-PATH=~/.console-ninja/.bin:$PATH
