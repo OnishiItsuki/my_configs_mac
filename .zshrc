@@ -14,12 +14,21 @@ PROMPT='
 export PATH="/opt/homebrew/Cellar/mongodb-community@5.0/5.0.27/bin:$PATH"
 export PATH="/opt/homebrew/opt/mysql@8.0/bin:$PATH"
 export PATH="~/.console-ninja/.bin":$PATH
+export PATH="$HOME/.nodenv/bin:$PATH"
+export PATH="$HOME/.volta/bin:$PATH"
 
+eval "$(nodenv init -)"
 # ------- python settings ------- 
 # export PATH="${HOME}/.pyenv/shims:${PATH}"
 
 # ------- not secure enviroment variables ------- 
 export HOMEBREW_NO_AUTO_UPDATE=1
+
+# ------- claude code settings ------- 
+export MAX_THINKING_TOKENS=31999
+alias claude="specstory run"
+alias cl="claude"
+alias cly="specstory run -c 'claude --dangerously-skip-permissions'"
 
 # ------- alias ------- 
 # -- shell -- 
@@ -110,3 +119,4 @@ alias hex="TMPHISTCMD=\$(history 1 | fzf --reverse --tac | sed 's/^ *[0-9]* *//'
 # alias hex="history 1 | fzf --reverse --tac | sed 's/^ *[0-9]* *//' | xargs -I {} zsh -c \"{}\""
 
 
+PATH=~/.console-ninja/.bin:$PATH

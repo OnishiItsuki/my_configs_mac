@@ -2,3 +2,15 @@
 !.gitignore
 !.zshrc
 !*.lua
+
+!.claude
+.claude/**
+
+!.claude/CLAUDE.md
+!.claude/hooks
+!.claude/hooks/**
+!.claude/settings
+!.claude/settings/**
+!.claude/commands
+!.claude/commands/**
+
