@@ -27,7 +27,7 @@ export HOMEBREW_NO_AUTO_UPDATE=1
 # ------- claude code settings ------- 
 export MAX_THINKING_TOKENS=31999
 alias claude="specstory run"
-alias cl="claude"
+alias cl="specstory run"
 alias cly="specstory run -c 'claude --dangerously-skip-permissions'"
 
 # ------- alias ------- 
