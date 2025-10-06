@@ -16,6 +16,7 @@ export PATH="/opt/homebrew/opt/mysql@8.0/bin:$PATH"
 export PATH="~/.console-ninja/.bin":$PATH
 export PATH="$HOME/.nodenv/bin:$PATH"
 export PATH="$HOME/.volta/bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
 
 eval "$(nodenv init -)"
 # ------- python settings ------- 
@@ -24,11 +25,11 @@ eval "$(nodenv init -)"
 # ------- not secure enviroment variables ------- 
 export HOMEBREW_NO_AUTO_UPDATE=1
 
-# ------- claude code settings ------- 
+# ------- AI settings ------- 
 export MAX_THINKING_TOKENS=31999
-alias claude="specstory run"
-alias cl="specstory run"
+alias cl="echo 'start with specstory'; specstory run"
 alias cly="specstory run -c 'claude --dangerously-skip-permissions'"
+alias ca="cursor-agent"
 
 # ------- alias ------- 
 # -- shell -- 
