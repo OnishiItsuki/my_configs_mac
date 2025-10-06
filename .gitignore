@@ -3,6 +3,7 @@
 !.zshrc
 !*.lua
 
+# claude code
 !.claude
 .claude/**
 
@@ -14,5 +15,13 @@
 !.claude/commands
 !.claude/commands/**
 
-.specstory
+# codex
+!.codex
+.codex/**
 
+!.codex/AGENTS.md
+!.codex/settings
+!.codex/settings/**
+
+# temp files
+.specstory
